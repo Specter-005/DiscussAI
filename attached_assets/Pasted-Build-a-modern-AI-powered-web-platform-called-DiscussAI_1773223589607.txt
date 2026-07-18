@@ -1,0 +1,311 @@
+Build a modern, AI-powered web platform called “DiscussAI” that allows students to practice Group Discussion (GD) rounds for placements with AI participants.
+
+The platform should simulate real placement GD environments, where multiple AI agents discuss a topic while the student participates. The system then provides detailed AI feedback on communication skills, clarity, leadership, and relevance.
+
+The design must feel premium, futuristic, and highly interactive, with smooth animations and a visually impressive UI.
+
+Core Features
+1. AI Group Discussion Simulation
+
+The platform must simulate 3–5 AI participants in a group discussion.
+
+Each AI participant must have a distinct personality style:
+
+Logical Thinker – structured arguments
+
+Data Analyst – supports points with statistics
+
+Aggressive Debater – interrupts and challenges ideas
+
+Balanced Speaker – mediates and summarizes
+
+Moderator – guides discussion and ends session
+
+The student joins the discussion and can type or speak responses.
+
+The AI participants should respond dynamically using an AI model.
+
+Discussion Flow
+
+User selects a GD topic
+
+AI participants introduce themselves
+
+Discussion starts
+
+AI participants exchange opinions
+
+Student joins and contributes
+
+AI reacts to the student’s statements
+
+After 5–7 minutes, moderator ends the discussion
+
+System generates performance analysis
+
+AI Feedback System
+
+After the discussion, generate a detailed evaluation report based on:
+
+Communication clarity
+
+Relevance to topic
+
+Leadership (initiating or summarizing)
+
+Confidence (participation frequency)
+
+Argument strength
+
+Listening and response quality
+
+Display scores out of 10 for each metric and provide improvement suggestions.
+
+Example output:
+
+Communication: 7.5 / 10
+Clarity: 8 / 10
+Leadership: 6 / 10
+
+Suggestions:
+
+Provide examples to strengthen arguments
+
+Try summarizing discussion points at the end
+
+UI / UX Requirements
+
+The interface must look exceptional and futuristic, similar to a premium AI platform.
+
+Use:
+
+Dark futuristic theme
+
+Neon accents
+
+Glassmorphism
+
+Smooth gradients
+
+Animated backgrounds
+
+Design inspiration:
+Modern AI dashboards and cyberpunk UI aesthetics.
+
+Animations (Important)
+
+Include high-quality animations throughout the website:
+
+Landing Page Animations
+
+Particle background
+
+Animated gradient waves
+
+Floating AI avatars
+
+Scroll-triggered animations
+
+Parallax sections
+
+Button Animations
+
+Glow hover effects
+
+Smooth transitions
+
+Magnetic hover interactions
+
+Discussion Screen
+
+Animated chat bubbles
+
+Typing indicators for AI participants
+
+Pulsing avatars when speaking
+
+Smooth message transitions
+
+Dashboard
+
+Animated progress bars
+
+Skill improvement charts
+
+Circular score indicators
+
+Interactive hover effects
+
+Animations should use Framer Motion or GSAP.
+
+Pages to Build
+1. Landing Page
+
+Sections:
+
+Hero Section:
+
+Title: “Master Group Discussions with AI”
+
+Subtitle explaining platform
+
+Animated CTA button “Start Practicing”
+
+Features Section:
+Cards explaining:
+
+AI GD simulation
+
+Smart feedback
+
+Realistic debate environment
+
+Skill tracking
+
+Demo Section:
+Interactive preview showing animated discussion UI.
+
+Call to Action:
+“Start Your First AI GD”
+
+2. Practice Page
+
+User can:
+
+Select GD topic
+
+Choose difficulty level
+
+Choose number of AI participants
+
+Start discussion
+
+Display AI participants with avatars and personality tags.
+
+3. Live Discussion Interface
+
+Show:
+
+Left side:
+AI participants list
+
+Center:
+Discussion chat with animated messages
+
+Right side:
+Student participation panel
+
+Include:
+
+Typing indicators
+
+Animated message bubbles
+
+Speaking highlight effects
+
+4. Feedback Dashboard
+
+Display:
+
+Skill analysis
+Graphs showing improvement
+Score breakdown
+
+Include:
+
+Radar charts
+
+Progress graphs
+
+Animated skill meters
+
+Topic Generator
+
+Include a GD topic generator with categories:
+
+Technology
+Business
+Social Issues
+Abstract Topics
+Case Study Discussions
+
+Example topics:
+
+“Is AI replacing human creativity?”
+
+“Should social media be regulated?”
+
+“Remote work vs office culture”
+
+“Is cryptocurrency the future of finance?”
+
+Technology Stack
+
+Frontend:
+
+React
+
+Tailwind CSS
+
+Framer Motion
+
+Three.js (optional for 3D effects)
+
+Backend:
+
+Node.js or Python (Flask/FastAPI)
+
+AI:
+
+AI model API for generating responses and feedback
+
+Database:
+
+MongoDB or Firebase
+
+Advanced Visual Effects
+
+Include modern UI enhancements:
+
+Glassmorphism cards
+
+Dynamic shadows
+
+Animated gradient borders
+
+Cursor glow effects
+
+Micro-interactions
+
+Add subtle motion everywhere so the site feels alive and premium.
+
+Extra Unique Features
+
+Add these creative elements:
+
+AI Mood Indicator
+Shows whether an AI participant is agreeing, challenging, or neutral.
+
+Debate Heat Meter
+Visual indicator showing how intense the discussion is.
+
+Speech Balance Meter
+Shows if the student is speaking too little or dominating discussion.
+
+Performance
+
+Ensure:
+
+Fast loading
+
+Responsive design
+
+Mobile compatibility
+
+Clean component architecture
+
+Goal
+
+The final product should feel like a next-generation AI interview training platform, not a simple chat website.
+
+It should look startup-level, visually stunning, interactive, and impressive for hackathons or portfolio demonstrations.
