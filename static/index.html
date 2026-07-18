@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DiscussAI — Professional Debate Simulator</title>
+  <meta name="description" content="AI-powered debate simulator with intelligent personas, human-like voices, and professional evaluation. Master group discussions for placement success.">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<!-- ===== TOAST CONTAINER ===== -->
+<div id="toast-container" class="toast-container"></div>
+
+<!-- ===== LOGIN PAGE ===== -->
+<div class="page" id="login-page">
+  <div class="auth-container">
+    <div class="auth-card animate-in">
+      <div class="auth-logo">
+        <span>⚡ DISCUSS</span><span class="ai">AI</span>
+      </div>
+      <h2>Welcome Back</h2>
+      <p class="text-muted">Sign in to continue your debate training</p>
+      <form id="login-form" class="auth-form">
+        <div class="floating-field">
+          <input type="text" id="login-username" class="input" placeholder=" " required autocomplete="username">
+          <label for="login-username">Username</label>
+        </div>
+        <div class="floating-field">
+          <input type="password" id="login-password" class="input" placeholder=" " required autocomplete="current-password">
+          <label for="login-password">Password</label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" style="width:100%" id="login-submit-btn">SIGN IN</button>
+      </form>
+      <p class="auth-switch">Don't have an account? <a href="#" id="goto-signup">Create one</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SIGNUP PAGE ===== -->
+<div class="page" id="signup-page">
+  <div class="auth-container">
+    <div class="auth-card animate-in">
+      <div class="auth-logo">
+        <span>⚡ DISCUSS</span><span class="ai">AI</span>
+      </div>
+      <h2>Create Account</h2>
+      <p class="text-muted">Join the debate arena</p>
+      <form id="signup-form" class="auth-form">
+        <div class="floating-field">
+          <input type="text" id="signup-username" class="input" placeholder=" " required autocomplete="username" minlength="3">
+          <label for="signup-username">Username</label>
+        </div>
+        <div class="floating-field">
+          <input type="text" id="signup-displayname" class="input" placeholder=" " required>
+          <label for="signup-displayname">Display Name</label>
+        </div>
+        <div class="floating-field">
+          <input type="password" id="signup-password" class="input" placeholder=" " required minlength="6" autocomplete="new-password">
+          <label for="signup-password">Password (min 6 chars)</label>
+        </div>
+        <div class="floating-field">
+          <input type="password" id="signup-confirm" class="input" placeholder=" " required autocomplete="new-password">
+          <label for="signup-confirm">Confirm Password</label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" style="width:100%" id="signup-submit-btn">CREATE ACCOUNT</button>
+      </form>
+      <p class="auth-switch">Already have an account? <a href="#" id="goto-login">Sign in</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="main-navbar">
+  <a class="navbar-brand" href="#" data-navigate="home">
+    <span>⚡ DISCUSS</span><span class="ai">AI</span>
+  </a>
+  <div class="navbar-nav">
+    <a href="#" data-navigate="setup">New Session</a>
+    <a href="#" data-navigate="analytics">Analytics</a>
+  </div>
+  <div class="navbar-actions">
+    <div class="user-badge" id="user-badge">
+      <div class="user-avatar" id="user-avatar">?</div>
+      <span id="user-display-name">User</span>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle theme">🌙</button>
+    <button class="btn btn-sm btn-ghost" id="logout-btn" title="Logout">🚪 Logout</button>
+  </div>
+</nav>
+
+<!-- ===== HOME PAGE ===== -->
+<div class="page" id="home-page">
+  <div class="container">
+    <div class="hero animate-in">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        <span style="font-family:var(--font-display);font-weight:600;text-transform:uppercase;letter-spacing:0.1em;font-size:0.7rem">DEBATE ENGINE v3.0</span>
+      </div>
+      <h1>MASTER THE ART OF <span class="gradient">DEBATE</span></h1>
+      <p>Train with intelligent AI personas that argue with real knowledge, challenge your logic, and evaluate you like a professional judge. Get a verdict — win, lose, or draw.</p>
+      <div class="hero-buttons">
+        <button class="btn btn-primary btn-lg" data-navigate="setup">Start Debate</button>
+        <button class="btn btn-secondary btn-lg" id="quick-start-btn">⚡ Quick Start</button>
+        <button class="btn btn-ghost btn-lg" data-navigate="analytics">View Analytics</button>
+      </div>
+    </div>
+
+    <div class="features">
+      <div class="card feature-card glow-top-cyan animate-in animate-in-delay-1" style="position:relative">
+        <div class="icon bg-primary-dim" style="color:var(--primary)">🧠</div>
+        <h3>Intelligent AI Debaters</h3>
+        <p>5 unique personas with topic-specific knowledge banks. They reference real data, counter your arguments, and never repeat themselves.</p>
+      </div>
+      <div class="card feature-card glow-top-purple animate-in animate-in-delay-2" style="position:relative">
+        <div class="icon bg-secondary-dim" style="color:var(--secondary)">⚖️</div>
+        <h3>Professional Verdict</h3>
+        <p>Get a judge's verdict — WIN, LOSE, or DRAW. With 6-category strict scoring, quoted weak arguments, and missed opportunity analysis.</p>
+      </div>
+      <div class="card feature-card glow-top-cyan animate-in animate-in-delay-3" style="position:relative">
+        <div class="icon bg-primary-dim" style="color:var(--primary)">🎙️</div>
+        <h3>Voice System</h3>
+        <p>Choose male or female AI voices. Each persona gets a unique voice with distinct pitch and style. Speak your arguments or type them.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SETUP PAGE ===== -->
+<div class="page" id="setup-page">
+  <div class="container">
+    <div class="animate-in" style="margin-bottom:32px">
+      <h1 style="font-size:clamp(2rem,4vw,3rem);font-weight:900;text-transform:uppercase;letter-spacing:0.05em">Configure <span class="text-primary">Parameters</span></h1>
+      <p class="text-muted" style="margin-top:4px">Set up the variables for your next simulation.</p>
+    </div>
+
+    <div class="setup-grid">
+      <div>
+        <!-- Topics -->
+        <div class="card glow-top-cyan animate-in animate-in-delay-1" style="position:relative;margin-bottom:24px;padding:24px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)">
+            <h2 style="font-size:1.1rem;display:flex;align-items:center;gap:8px">📂 SELECT TOPIC</h2>
+            <button class="btn btn-sm btn-primary" id="create-topic-toggle">+ Create</button>
+          </div>
+
+          <!-- Create topic form -->
+          <div class="hidden" id="create-topic-form" style="margin-bottom:16px;padding:16px;background:var(--bg-card);border:1px solid var(--primary-glow);border-radius:12px">
+            <input type="text" class="input" id="new-topic-title" placeholder="Topic title..." style="margin-bottom:8px">
+            <select class="input" id="new-topic-category" style="margin-bottom:8px">
+              <option>Technology</option><option>Business</option><option>Social Issues</option>
+              <option>Environment</option><option>Science</option><option>Economics</option>
+              <option>Health</option><option>Education</option><option>Ethics</option>
+              <option>Politics</option><option>Sports</option>
+            </select>
+            <button class="btn btn-primary btn-sm" id="create-topic-submit" style="width:100%">CREATE TOPIC</button>
+          </div>
+
+          <div class="topic-search">
+            <span class="icon">🔍</span>
+            <input type="text" class="input" id="topic-search" placeholder="Search topics...">
+          </div>
+          <div class="topics-list" id="topics-list"></div>
+        </div>
+
+        <!-- Difficulty + AI Count + Voice -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div class="card glow-top-purple animate-in animate-in-delay-2" style="position:relative;padding:24px">
+            <h2 style="font-size:1rem;display:flex;align-items:center;gap:8px;margin-bottom:20px">⚡ INTENSITY</h2>
+            <div class="difficulty-btns">
+              <button class="diff-btn selected" data-diff="easy">
+                Easy
+                <div class="diff-info">5-min session, 8 speaking turns. Ideal for beginners.</div>
+              </button>
+              <button class="diff-btn" data-diff="medium">
+                Medium
+                <div class="diff-info">8-min session, 6 speaking turns. Moderate challenge.</div>
+              </button>
+              <button class="diff-btn" data-diff="hard">
+                Hard
+                <div class="diff-info">12-min session, 4 speaking turns. Intense simulation.</div>
+              </button>
+            </div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <div class="card animate-in animate-in-delay-3" style="padding:24px">
+              <h2 style="font-size:1rem;display:flex;align-items:center;gap:8px;margin-bottom:20px">👥 ENTITIES</h2>
+              <div id="ai-count-display" class="ai-count-display">3</div>
+              <input type="range" id="ai-range" min="1" max="5" value="3" style="width:100%;accent-color:var(--primary)">
+              <p class="text-muted" style="font-size:0.75rem;text-align:center;margin-top:12px">Number of AI personas</p>
+            </div>
+
+            <!-- Voice Selector -->
+            <div class="card animate-in animate-in-delay-4" style="padding:20px" id="voice-selector-card">
+              <h2 style="font-size:0.9rem;display:flex;align-items:center;gap:8px;margin-bottom:16px">🎙️ AI VOICE</h2>
+              <div class="voice-toggle-group">
+                <button class="voice-toggle-btn selected" data-voice="female" id="voice-female-btn">
+                  <span class="voice-icon">♀</span>
+                  <span>Girl</span>
+                </button>
+                <button class="voice-toggle-btn" data-voice="male" id="voice-male-btn">
+                  <span class="voice-icon">♂</span>
+                  <span>Boy</span>
+                </button>
+              </div>
+              <button class="btn btn-sm btn-ghost" id="voice-preview-btn" style="width:100%;margin-top:10px;font-size:0.7rem">▶ Preview Voice</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary -->
+      <div>
+        <div class="card summary-card animate-in animate-in-delay-4" style="padding:24px;display:flex;flex-direction:column;min-height:360px">
+          <h3 style="font-size:1.1rem;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)">SIMULATION BRIEF</h3>
+          <div style="flex:1;display:flex;flex-direction:column;gap:16px;font-size:0.9rem">
+            <div>
+              <div class="label">Target Subject</div>
+              <div class="value" id="summary-topic">Awaiting selection...</div>
+            </div>
+            <div>
+              <div class="label">Difficulty Level</div>
+              <div class="value" id="summary-diff" style="text-transform:uppercase;color:var(--warning)">MEDIUM</div>
+            </div>
+            <div>
+              <div class="label">Active Nodes</div>
+              <div class="value" id="summary-ai">3 AI + You</div>
+            </div>
+            <div>
+              <div class="label">Voice Style</div>
+              <div class="value" id="summary-voice">Female</div>
+            </div>
+          </div>
+          <button class="btn btn-primary" id="start-session-btn" disabled style="width:100%;margin-top:24px">INITIATE SEQUENCE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SESSION PAGE ===== -->
+<div class="page" id="session-page">
+  <header class="session-header">
+    <div class="topic-label">
+      <span class="live-dot"></span>
+      <span style="color:var(--text-muted)">TOPIC:</span>
+      <span id="session-topic-label"></span>
+    </div>
+    <div class="controls">
+      <div class="timer-wrap">
+        <div class="timer-ring" id="timer-ring"></div>
+      </div>
+      <div class="turn-counter">
+        <span class="label">Turns</span>
+        <div class="turn-icons" id="turn-icons"></div>
+        <span class="turns-left" id="turns-left"></span>
+      </div>
+      <button class="mute-btn" id="mute-btn" title="Toggle TTS">🔊</button>
+      <button class="btn btn-ghost btn-sm" id="terminate-btn">🚪 <span class="hide-mobile">TERMINATE</span></button>
+    </div>
+  </header>
+
+  <div class="session-body">
+    <aside class="sidebar" id="persona-sidebar"></aside>
+    <div class="chat-area">
+      <div class="messages" id="messages-area"></div>
+
+      <div id="skip-ai-area" class="hidden" style="padding:4px 16px">
+        <button class="skip-ai-btn" id="skip-ai-btn">⏭️ Skip AI Response</button>
+      </div>
+
+      <div class="chat-input-area">
+        <div id="waveform-area" class="hidden" style="padding:0 16px;margin-bottom:8px">
+          <div class="waveform" id="waveform-bars">
+            <div class="bar" style="height:4px"></div><div class="bar" style="height:4px"></div><div class="bar" style="height:4px"></div>
+            <div class="bar" style="height:4px"></div><div class="bar" style="height:4px"></div><div class="bar" style="height:4px"></div>
+            <div class="bar" style="height:4px"></div><div class="bar" style="height:4px"></div><div class="bar" style="height:4px"></div>
+            <div class="bar" style="height:4px"></div><div class="bar" style="height:4px"></div><div class="bar" style="height:4px"></div>
+            <div class="bar" style="height:4px"></div><div class="bar" style="height:4px"></div><div class="bar" style="height:4px"></div>
+            <div class="bar" style="height:4px"></div>
+          </div>
+          <span class="text-danger" style="font-size:0.7rem;font-family:var(--font-display)" id="voice-countdown">30s</span>
+        </div>
+
+        <div id="voice-preview" class="hidden voice-preview">
+          <div class="label">Live transcript:</div>
+          <div id="voice-transcript"></div>
+        </div>
+
+        <form id="chat-form" class="chat-input-form">
+          <div class="input-wrapper">
+            <span class="input-icon">👤</span>
+            <input type="text" class="input" id="chat-input" placeholder="Type or use voice..." autocomplete="off">
+          </div>
+          <button type="button" class="mic-btn" id="mic-btn" title="Voice input">🎤</button>
+          <button type="submit" class="send-btn" id="send-btn" title="Send">➤</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FEEDBACK PAGE ===== -->
+<div class="page" id="feedback-page">
+  <div class="container" style="padding-bottom:60px">
+    <div id="feedback-content"></div>
+  </div>
+</div>
+
+<!-- ===== ANALYTICS PAGE ===== -->
+<div class="page" id="analytics-page">
+  <div class="container" style="padding-bottom:60px">
+    <div id="analytics-content"></div>
+  </div>
+</div>
+
+<script src="ai-engine.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
